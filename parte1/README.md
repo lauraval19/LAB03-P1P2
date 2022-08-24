@@ -24,7 +24,7 @@ Control de hilos con wait/notify. Productor/consumidor.
 
 3. Haga que ahora el productor produzca muy rápido, y el consumidor consuma lento. Teniendo en cuenta que el productor conoce un límite de Stock (cuantos elementos debería tener, a lo sumo en la cola), haga que dicho límite se respete. Revise el API de la colección usada como cola para ver cómo garantizar que dicho límite no se supere. Verifique que, al poner un límite pequeño para el 'stock', no haya consumo alto de CPU ni errores.
 
-###Para que se respete el número de stock, hicimos que cada vez que la cola este llena no produzca más, hasta que consume le notifique que ya se eliminó un valor.
+### Para que se respete el número de stock, hicimos que cada vez que la cola este llena no produzca más, hasta que consume le notifique que ya se eliminó un valor.
 
 ## Clase Produce, sinronizandose para que se comporte de manera secuencial y espere a que la cola se desocupe si llega a stock.
 
