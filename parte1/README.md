@@ -26,11 +26,11 @@ Control de hilos con wait/notify. Productor/consumidor.
 
 ### Para que se respete el número de stock, hicimos que cada vez que la cola este llena no produzca más, hasta que consume le notifique que ya se eliminó un valor.
 
-## Clase Produce, sinronizandose para que se comporte de manera secuencial y espere a que la cola se desocupe si llega a stock.
+## Clase Produce, sinronizandose para que se comporte de manera secuencial y espere a que la cola se desocupe si llega a stock, cuando tenga valores notifica para que empiecen a eliminar.
 
 ![](https://github.com/lauraval19/LAB03-P1P2/blob/master/parte1/images/producerUpdated.PNG)
 
-## Clase Consume, se sincroniza y espera a que la cola tenga valores, para comenzar a consumir.
+## Clase Consume, se sincroniza y espera a que la cola tenga valores, para comenzar a consumir, y notificar que ya se consumió para seguir llenando la cola.
 
 ![](https://github.com/lauraval19/LAB03-P1P2/blob/master/parte1/images/consumerUpdated.PNG)
 
