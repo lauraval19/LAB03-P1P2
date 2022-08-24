@@ -7,6 +7,7 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="ConcurrentPrgExercises-Highlander-Prod-Cons" />
+        <module name="parte1" />
       </profile>
     </annotationProcessing>
   </component>
