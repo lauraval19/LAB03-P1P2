@@ -5,10 +5,10 @@ import java.util.Random;
 
 public class Immortal extends Thread {
 
-    private ImmortalUpdateReportCallback updateCallback=null;
-    
-    private int health;
-    
+    private ImmortalUpdateReportCallback updateCallback = null;
+
+    private Integer health;
+
     private int defaultDamageValue;
 
     private final List<Immortal> immortalsPopulation;
@@ -17,30 +17,32 @@ public class Immortal extends Thread {
 
     private final Random r = new Random(System.currentTimeMillis());
 
-    private boolean pause=true;
+    private boolean pause;
 
 
     public Immortal(String name, List<Immortal> immortalsPopulation, int health, int defaultDamageValue, ImmortalUpdateReportCallback ucb) {
         super(name);
-        this.updateCallback=ucb;
+        this.updateCallback = ucb;
         this.name = name;
         this.immortalsPopulation = immortalsPopulation;
         this.health = health;
-        this.defaultDamageValue=defaultDamageValue;
-        this.pause = true;
+        this.defaultDamageValue = defaultDamageValue;
+        this.pause = false;
     }
 
     public void run() {
-        /**
-            synchronized (this) {
-                while (pause) {
-                    try {
-                        wait();
-                    } catch (InterruptedException ex) {
-                    }
+        synchronized (this) {
+            while (pause) {
+                try {
+                    wait();
+                } catch (InterruptedException ex) {
+                    System.out.println("Error");
                 }
+
             }
-         **/
+        }
+
+        while (!pause) {
 
             Immortal im;
 
@@ -62,16 +64,17 @@ public class Immortal extends Thread {
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
-
+        }
 
     }
+
 
     public void fight(Immortal i2) {
 
         if (i2.getHealth() > 0) {
             i2.changeHealth(i2.getHealth() - defaultDamageValue);
             this.health += defaultDamageValue;
-            updateCallback.processReport("Fight: " + this + " vs " + i2+"\n");
+            updateCallback.processReport("Fight: " + this + " vs " + i2 + "\n");
         } else {
             updateCallback.processReport(this + " says:" + i2 + " is already dead!\n");
         }
@@ -98,6 +101,8 @@ public class Immortal extends Thread {
 
     public void resumen() {
         pause = false;
-        notify();
+        synchronized (this) {
+            notifyAll();
+        }
     }
 }
