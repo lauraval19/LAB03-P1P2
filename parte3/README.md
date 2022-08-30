@@ -26,7 +26,17 @@ No se cumple el invariante, ya que en nuestro caso agregamos 3 inmortales y toma
 
 4. Una primera hipótesis para que se presente la condición de carrera para dicha función (pause and check), es que el programa consulta la lista cuyos valores va a imprimir, a la vez que otros hilos modifican sus valores. Para corregir esto, haga lo que sea necesario para que efectivamente, antes de imprimir los resultados actuales, se pausen todos los demás hilos. Adicionalmente, implemente la opción ‘resume’.
 
+Implmentando el pause y resume en el código por cada inmortal, vamos pausando cada uno de estos, para poder pausarlos y luego imprimir.
+
+![image](https://user-images.githubusercontent.com/98195579/187488514-df1006d2-1dc9-4812-9b3b-e0735f9ce4a7.png)
+
+![image](https://user-images.githubusercontent.com/98195579/187488631-1940434c-092f-464d-904d-3d70a5028d8f.png)
+
 5. Verifique nuevamente el funcionamiento (haga clic muchas veces en el botón). Se cumple o no el invariante?.
+
+![image](https://user-images.githubusercontent.com/98195579/187489173-33405e8a-9ce5-4920-8eab-01a5a506dd9a.png)
+
+No se cumple el invariante a pesar de que se implementa el pause and check. Por que solo se está sincronizando el hilo del inmortal.
 
 6. Identifique posibles regiones críticas en lo que respecta a la pelea de los inmortales. Implemente una estrategia de bloqueo que evite las condiciones de carrera. Recuerde que si usted requiere usar dos o más ‘locks’ simultáneamente, puede usar bloques sincronizados anidados:
 
