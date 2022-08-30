@@ -34,9 +34,8 @@ Implmentando el pause y resume en el código por cada inmortal, vamos pausando c
 
 5. Verifique nuevamente el funcionamiento (haga clic muchas veces en el botón). Se cumple o no el invariante?.
 
-![image](https://user-images.githubusercontent.com/98195579/187489173-33405e8a-9ce5-4920-8eab-01a5a506dd9a.png)
-
-No se cumple el invariante a pesar de que se implementa el pause and check. Por que solo se está sincronizando el hilo del inmortal.
+Se cumple el invariante ya que, mientras están luchando, se mantiene la sumatoria.
+![imagen](https://user-images.githubusercontent.com/98195579/187562819-76ed86c0-2103-451c-977b-7f98d96774fb.png)
 
 6. Identifique posibles regiones críticas en lo que respecta a la pelea de los inmortales. Implemente una estrategia de bloqueo que evite las condiciones de carrera. Recuerde que si usted requiere usar dos o más ‘locks’ simultáneamente, puede usar bloques sincronizados anidados:
 
