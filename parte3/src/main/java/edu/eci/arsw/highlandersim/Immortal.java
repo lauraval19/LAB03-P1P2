@@ -61,7 +61,6 @@ public class Immortal extends Thread {
                 im = immortalsPopulation.get(nextFighterIndex);
 
                 this.fight(im);
-                immortalsPopulation.removeIf(imm -> imm.getHealth() == 0);
 
             }
             try {
