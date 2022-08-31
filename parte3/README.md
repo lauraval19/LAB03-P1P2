@@ -34,7 +34,8 @@ Implmentando el pause y resume en el código por cada inmortal, vamos pausando c
 
 5. Verifique nuevamente el funcionamiento (haga clic muchas veces en el botón). Se cumple o no el invariante?.
 
-Se cumple el invariante ya que, mientras están luchando, se mantiene la sumatoria.
+Se cumple el invariante ya que, la condición de carrera para luchar con un inmortal se implementa a la hora de pausar un hilo para que los demas no sigan matando y se mantenga el mismo valor.
+
 ![imagen](https://user-images.githubusercontent.com/98195579/187562819-76ed86c0-2103-451c-977b-7f98d96774fb.png)
 
 6. Identifique posibles regiones críticas en lo que respecta a la pelea de los inmortales. Implemente una estrategia de bloqueo que evite las condiciones de carrera. Recuerde que si usted requiere usar dos o más ‘locks’ simultáneamente, puede usar bloques sincronizados anidados:
